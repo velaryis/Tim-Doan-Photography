@@ -71,17 +71,17 @@ nav a:hover::after {
 
 /* footer style */
 .site-footer {
-    margin-top: auto;
+    margin-top: auto; /* pushes the footer to the bottom of the page */
 }
 
-.site-footer footer {
+.site-footer footer { /* style for the footer element within the site-footer */
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.7rem;
-    padding: 1.5rem 2.5rem;
-    display: flex;
-    border-top: 1px solid var(--line);
-    justify-content: space-between;
-    text-transform: uppercase;
+    padding: 1.5rem 2.5rem; /* adds padding inside the footer for spacing */
+    display: flex; 
+    border-top: 1px solid var(--line); /* adds a top border to the footer */
+    justify-content: space-between; /* spaces out the footer content evenly */
+    text-transform: uppercase; 
     letter-spacing: 0.2em;
     color: var(--muted);
     background-color: var(--primary);
@@ -97,3 +97,50 @@ nav a:hover::after {
 .site-footer .socials a:hover {
     color: var(--rust);  /* changes the color of the social link to rust on hover */
 }
+
+/* about section style */
+.about h2 {
+    font-size: 2.5rem;
+    font-weight: normal;
+    margin-top: 0;
+}   
+
+.about {
+    font-size: 18px;
+    text-align: justify; 
+    text-decoration: none;
+    padding: 2.5rem; /* adds padding around the about section for spacing */
+    display: block; /* sets the about section to block display */
+    color: var(--inline);
+}
+
+.about-text {
+    max-width: 45rem; /* sets the maximum width of the about text to the left column */
+    margin-right: auto;
+    line-height: 1.7;
+}
+
+.about em {
+    color: var(--rust);
+}
+
+.credits {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line); /* adds a top border to the credits section */
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* sets the grid to have two columns with a 1:2 ratio */
+    gap: 1rem; /* adds a gap between the grid columns */
+    text-transform: uppercase; 
+    letter-spacing: 0.15em;
+    color: var(--muted);
+}
+
+.credits div span {
+    display: block; /* ensures each span within the credits div is displayed as a block element */
+}
+
+
+
