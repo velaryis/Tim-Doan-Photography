@@ -52,19 +52,48 @@ nav ul { /* style for the unordered list of links in the nav bar */
 nav a {
     text-decoration: none; /* removes the underline from the link */
     position: relative;
-    padding-bottom: 2px;
+    padding-bottom: 2px; /* adds space below the link text for the underline effect */
     color: inherit; /* ensures the link inherits the color from its parent element */
 }
 
 nav a::after {
-    content: "";
-    position: absolute;
-    left: 0; bottom: 0;
-    width: 0; height: 1px;
-    background: currentColor;
-    transition: width 0.4s ease;
+    content: ""; /* creates an empty pseudo-element for the underline effect */
+    position: absolute; /* positions the pseudo-element absolutely relative to the link */
+    left: 0; bottom: 0; /* positions the pseudo-element at the bottom left of the link */
+    width: 0; height: 1px; /* initially sets the width to 0 for the underline effect and height to 1px */
+    background: currentColor; 
+    transition: width 0.4s ease; /* animates the width change smoothly over 0.4 seconds */
 }
 
 nav a:hover::after { 
-    width: 100%; 
+    width: 100%; /* expands the underline to full width of the link on hover */
+}
+
+/* footer style */
+.site-footer {
+    margin-top: auto;
+}
+
+.site-footer footer {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    padding: 1.5rem 2.5rem;
+    display: flex;
+    border-top: 1px solid var(--line);
+    justify-content: space-between;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    background-color: var(--primary);
+}
+
+.site-footer  .socials a {
+    text-decoration: none; /* removes the underline from the social link */
+    margin-left: 1.5rem; /* adds space to the left of each social link */
+    transition: color 0.3s; /* smoothly transitions the color change over 0.3 seconds */
+    color: inherit; /* ensures the link inherits the color from its parent element */
+}
+  
+.site-footer .socials a:hover {
+    color: var(--rust);  /* changes the color of the social link to rust on hover */
 }
