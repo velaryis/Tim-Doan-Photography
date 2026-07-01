@@ -109,7 +109,7 @@ nav a:hover::after {
     font-size: 18px;
     text-align: justify; 
     text-decoration: none;
-    padding: 2rem; /* adds padding around the about section for spacing */
+    padding: 3rem; /* adds padding around the about section for spacing */
     display: block; /* sets the about section to block display */
     color: var(--line);
 }
@@ -122,7 +122,7 @@ nav a:hover::after {
 }
 
 .about-text {
-    max-width: 45rem;
+    max-width: 50rem;
     line-height: 1.7;
 }
 
