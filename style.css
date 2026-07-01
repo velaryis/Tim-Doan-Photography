@@ -1,0 +1,51 @@
+/* root variables for color */
+:root {
+    --primary: #fffcf2;
+    --line: #252422;
+    --muted: #403d39;
+    --rust: #b4654a;
+    --light: #ccc5b9;
+}
+
+/* general body style */
+body {
+    font-family: 'Fraunces', serif;
+    background-color: #fffcf2;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* nav bar style */
+nav {
+    font-family: 'Fraunces', serif;
+    position: sticky; /* makes the nav bar stick to its position within the viewport */
+    top: 0; /* sticks the nav bar to the top of the viewport */
+    z-index: 100; /* ensures nav bar stays on top of other content */
+    padding: 1.5rem 2.5rem; /* adds space inside the nav bar around its content */
+    display: flex; /* enables flexbox layout for the nav bar content */
+    justify-content: space-between; /* aligns the nav bar content with space between items */
+    align-items: center; /* vertically centers the nav bar content */
+    color: var(--line); 
+    background-color: var(--primary);
+}
+
+nav .name { /* style for 'tim doan photography' text in the nav bar */
+    font-size: 1.5rem;
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: -0.02em;    
+}
+
+nav ul { /* style for the unordered list of links in the nav bar */
+    font-size: 0.75rem;
+    font-weight: 600;
+    list-style: none; /* removes default bullet points from the list */
+    display: flex; /* enables flexbox layout for the list items */
+    gap: 2.5rem; /* adds space between the list items */
+    text-transform: uppercase; /* transforms the text to uppercase letters */
+    letter-spacing: 0.15em;
+}
+
