@@ -49,3 +49,22 @@ nav ul { /* style for the unordered list of links in the nav bar */
     letter-spacing: 0.15em;
 }
 
+nav a {
+    text-decoration: none; /* removes the underline from the link */
+    position: relative;
+    padding-bottom: 2px;
+    color: inherit; /* ensures the link inherits the color from its parent element */
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 0; height: 1px;
+    background: currentColor;
+    transition: width 0.4s ease;
+}
+
+nav a:hover::after { 
+    width: 100%; 
+}
