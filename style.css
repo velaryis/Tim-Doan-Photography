@@ -98,6 +98,34 @@ nav a:hover::after {
     color: var(--rust);  /* changes the color of the social link to rust on hover */
 }
 
+/* home page style */
+
+.home-img {
+    width: 100%; /* sets the width of the home image container to the full viewport width */
+    overflow: hidden; /* ensures any overflow content is hidden */
+}
+
+.home-img img {
+    width: 100%; /* makes the image take the full width of the container */
+    height: 55vh; /* maintains the aspect ratio of the image */
+    object-fit: cover; /* ensures the image covers the container without distortion */
+    object-position: center 58%;
+    transform: scale(1.50); /* slightly scales up the image for a subtle zoom effect */
+    transform-origin: 70% center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* about section style */
 .about h2 {
     font-size: 2.5rem;
@@ -169,3 +197,4 @@ nav a:hover::after {
         margin: 0;
     }
 }
+
