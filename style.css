@@ -1,0 +1,275 @@
+/* root variables for color */
+:root {
+    --primary: #fffcf2;
+    --line: #252422;
+    --muted: #403d39;
+    --rust: #b4654a;
+    --light: #ccc5b9;
+}
+
+/* general body style */
+body {
+    font-family: 'Fraunces', serif;
+    background-color: #fffcf2;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* nav bar style */
+nav {
+    font-family: 'Fraunces', serif;
+    position: sticky; /* makes the nav bar stick to its position within the viewport */
+    top: 0; /* sticks the nav bar to the top of the viewport */
+    z-index: 100; /* ensures nav bar stays on top of other content */
+    padding: 1.2rem 2.5rem; /* adds space inside the nav bar around its content */
+    display: flex; /* enables flexbox layout for the nav bar content */
+    justify-content: space-between; /* aligns the nav bar content with space between items */
+    align-items: center; /* vertically centers the nav bar content */
+    color: var(--line); 
+    background-color: var(--primary);
+}
+
+nav .name { /* style for 'tim doan photography' text in the nav bar */
+    font-size: 1.3rem;
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: -0.02em;    
+}
+
+nav ul { /* style for the unordered list of links in the nav bar */
+    font-size: 0.75rem;
+    font-weight: 600;
+    list-style: none; /* removes default bullet points from the list */
+    display: flex; /* enables flexbox layout for the list items */
+    gap: 2.5rem; /* adds space between the list items */
+    text-transform: uppercase; /* transforms the text to uppercase letters */
+    letter-spacing: 0.15em;
+}
+
+nav a {
+    text-decoration: none; /* removes the underline from the link */
+    position: relative;
+    padding-bottom: 2px; /* adds space below the link text for the underline effect */
+    color: inherit; /* ensures the link inherits the color from its parent element */
+}
+
+nav a::after {
+    content: ""; /* creates an empty pseudo-element for the underline effect */
+    position: absolute; /* positions the pseudo-element absolutely relative to the link */
+    left: 0; bottom: 0; /* positions the pseudo-element at the bottom left of the link */
+    width: 0; height: 1px; /* initially sets the width to 0 for the underline effect and height to 1px */
+    background: currentColor; 
+    transition: width 0.4s ease; /* animates the width change smoothly over 0.4 seconds */
+}
+
+nav a:hover::after { 
+    width: 100%; /* expands the underline to full width of the link on hover */
+}
+
+/* footer style */
+.site-footer {
+    position: sticky; /* makes the nav bar stick to its position within the viewport */
+    bottom: 0; /* sticks the nav bar to the top of the viewport */
+    z-index: 100; /* ensures nav bar stays on top of other content */
+    margin-top: auto; /* pushes the footer to the bottom of the page */
+}
+
+.site-footer footer { /* style for the footer element within the site-footer */
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    padding: 1rem 2.5rem; /* adds padding inside the footer for spacing */
+    display: flex; 
+    border-top: 1px solid var(--line); /* adds a top border to the footer */
+    justify-content: space-between; /* spaces out the footer content evenly */
+    text-transform: uppercase; 
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    background-color: var(--primary);
+}
+
+.site-footer .socials a {
+    text-decoration: none; /* removes the underline from the social link */
+    margin-left: 1.5rem; /* adds space to the left of each social link */
+    transition: color 0.3s; /* smoothly transitions the color change over 0.3 seconds */
+    color: inherit; /* ensures the link inherits the color from its parent element */
+}
+  
+.site-footer .socials a:hover {
+    color: var(--rust);  /* changes the color of the social link to rust on hover */
+}
+
+/* home page style */
+
+.home-img {
+    width: 100%; /* sets the width of the home image container to the full viewport width */
+    overflow: hidden; /* ensures any overflow content is hidden */
+}
+
+.home-img img {
+    width: 100%; /* makes the image take the full width of the container */
+    height: 51.5vh; /* maintains the aspect ratio of the image */
+    object-fit: cover; /* ensures the image covers the container without distortion */
+    object-position: center 58%;
+    transform: scale(1.50); /* slightly scales up the image for a subtle zoom effect */
+    transform-origin: 70% center;
+}
+
+.home-section .home-blurb h1 {
+    font-size: 2.3rem;
+    text-align: center;
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: 0.25em;   
+    text-transform: uppercase; /* transforms the text to uppercase letters */
+    margin: 0 auto; /* centers the home blurb horizontally */
+    padding-top: 2rem; /* adds padding around the home blurb for spacing */
+    color: var(--rust); /* sets the text color for the home blurb heading */
+}
+
+.home-section .home-blurb p {
+    font-size: 1.2rem;
+    text-align: center ;
+    font-weight: 300; /* sets the font weight to a lighter style for the paragraph */
+    line-height: 1.5;
+    margin: 1rem 0 0 0; /* adds margin to the top of the paragraph for spacing */
+    padding-bottom: 1.5rem; /* adds padding to the bottom of the paragraph for spacing */
+}
+
+.home-portfolio-heading {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-top: 40px;
+    color: var(--muted); /* sets the text color for the home portfolio heading */
+}
+
+.heading-divider {
+    width: 120px;
+    height: 2px;
+    margin: 0 auto;
+    background: var(--rust);
+}
+
+.portfolio-preview {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* creates a grid with 2 equal columns */
+    gap: 20px; /* adds space between the grid items */
+    margin: 0 auto; /* centers the portfolio preview section horizontally */
+    padding: 2rem; /* adds padding around the portfolio preview section for spacing */
+}
+
+.preview-grid {
+    position: relative;
+    display: block;
+    aspect-ratio: 4 / 3; /* sets the aspect ratio of the preview grid items to 4:3 */
+    overflow: hidden; /* ensures any overflow content within the preview grid item is hidden */
+}
+
+.preview-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ensures the image covers the container without distortion */
+}
+
+.overlay {
+    position: absolute; /* positions the overlay absolutely within the preview grid item */
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* centers the content horizontally within the overlay */
+    background-color: rgba(0, 0, 0, 0); /* adds a semi-transparent background to the overlay */
+    color: transparent;
+    font-size: 1.5rem;
+    text-transform: uppercase; /* transforms the text to uppercase letters */
+    letter-spacing: 0.05em;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.preview-grid:hover .overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* changes the background to semi-transparent on hover */
+    color: white; /* changes the text color to white on hover */
+}
+
+@media (max-width: 600px) {
+    .preview-grid {
+        grid-template-columns: 1fr; /* changes the grid to a single column on small screens */
+    }
+}
+
+/* about section style */
+.about h2 {
+    font-size: 2.5rem;
+    font-weight: normal;
+    margin-top: 0;
+}   
+
+.about {
+    font-size: 1.2rem;
+    text-align: justify; 
+    text-decoration: none;
+    padding: 3rem; /* adds padding around the about section for spacing */
+    display: block; /* sets the about section to block display */
+    color: var(--line);
+}
+
+.about-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
+    gap: 2.5rem;
+    align-items: start;
+}
+
+.about-text {
+    max-width: 50rem;
+    line-height: 1.7;
+}
+
+.about em {
+    color: var(--rust);
+}
+
+.credits {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line); /* adds a top border to the credits section */
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* sets the grid to have two columns with a 1:2 ratio */
+    gap: 1rem; /* adds a gap between the grid columns */
+    text-transform: uppercase; 
+    letter-spacing: 0.15em;
+    color: var(--muted);
+}
+
+.credits div span {
+    display: block; /* ensures each span within the credits div is displayed as a block element */
+}
+
+.tim-headshot {
+    align-self: start;
+}
+
+.tim-headshot img {
+    max-width: 100%;
+    display: block;
+    height: auto;
+}
+
+@media (max-width: 900px) {
+    .about-layout {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .tim-headshot img {
+        max-width: 320px;
+        margin: 0;
+    }
+}
+
