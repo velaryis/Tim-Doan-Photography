@@ -1,0 +1,37 @@
+{
+    "events":
+    ["EventPortfolio-1.jpg", "EventPortfolio-2.jpg", "EventPortfolio-3.jpg",
+    "EventPortfolio-4.jpg", "EventPortfolio-5.jpg", "EventPortfolio-6.jpg",
+    "EventPortfolio-7.jpg", "EventPortfolio-8.jpg", "EventPortfolio-9.jpg",
+    "EventPortfolio-10.jpg", "EventPortfolio-11.jpg", "EventPortfolio-12.jpg",
+    "EventPortfolio-13.jpg", "EventPortfolio-13.jpg", "EventPortfolio-15.jpg",
+    "EventPortfolio-16.jpg", "EventPortfolio-17.jpg", "EventPortfolio-18.jpg",
+    "EventPortfolio-19.jpg", "EventPortfolio-20.jpg"],
+
+    "graduation":
+    ["GradPortfolio-1.jpg", "GradPortfolio-2.jpg", "GradPortfolio-3.jpg",
+    "GradPortfolio-4.jpg", "GradPortfolio-5.jpg", "GradPortfolio-6.jpg",
+    "GradPortfolio-7.jpg", "GradPortfolio-8.jpg", "GradPortfolio-9.jpg",
+    "GradPortfolio-10.jpg", "GradPortfolio-11.jpg", "GradPortfolio-12.jpg",
+    "GradPortfolio-13.jpg", "GradPortfolio-13.jpg", "GradPortfolio-15.jpg",
+    "GradPortfolio-16.jpg", "GradPortfolio-17.jpg", "GradPortfolio-18.jpg",
+    "GradPortfolio-19.jpg", "GradPortfolio-20.jpg"],
+
+    "wedding":
+    ["WeddingPortfolio-1.jpg", "WeddingPortfolio-2.jpg", "WeddingPortfolio-3.jpg",
+    "WeddingPortfolio-4.jpg", "WeddingPortfolio-5.jpg", "WeddingPortfolio-6.jpg",
+    "WeddingPortfolio-7.jpg", "WeddingPortfolio-8.jpg", "WeddingPortfolio-9.jpg",
+    "WeddingPortfolio-10.jpg", "WeddingPortfolio-11.jpg", "WeddingPortfolio-12.jpg",
+    "WeddingPortfolio-13.jpg", "WeddingPortfolio-13.jpg", "WeddingPortfolio-15.jpg",
+    "WeddingPortfolio-16.jpg", "WeddingPortfolio-17.jpg", "WeddingPortfolio-18.jpg",
+    "WeddingPortfolio-19.jpg", "WeddingPortfolio-20.jpg"],
+
+    "portrait":
+    ["PortraitPortfolio-1.jpg", "PortraitPortfolio-2.jpg", "PortraitPortfolio-3.jpg",
+    "PortraitPortfolio-4.jpg", "PortraitPortfolio-5.jpg", "PortraitPortfolio-6.jpg",
+    "PortraitPortfolio-7.jpg", "PortraitPortfolio-8.jpg", "PortraitPortfolio-9.jpg",
+    "PortraitPortfolio-10.jpg", "PortraitPortfolio-11.jpg", "PortraitPortfolio-12.jpg",
+    "PortraitPortfolio-13.jpg", "PortraitPortfolio-13.jpg", "PortraitPortfolio-15.jpg",
+    "PortraitPortfolio-16.jpg", "PortraitPortfolio-17.jpg", "PortraitPortfolio-18.jpg",
+    "PortraitPortfolio-19.jpg", "PortraitPortfolio-20.jpg"]
+}
