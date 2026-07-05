@@ -512,3 +512,180 @@ nav a:hover::after {
     background: var(--rust);
     color: var(--primary);
 }
+
+/* contact style */
+.contact {
+    display: block;
+    text-align: center;
+}
+
+.contact h1 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-top: 0;
+    color: var(--inline);
+}
+
+.contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 3rem;
+    align-items: start;
+    margin-top: 2rem;  
+}
+
+.contact-image {
+    width: 100%;
+}
+
+.contact-image img {
+    width: 80%;
+    max-width: 80%;
+    height: auto;
+    margin: 0 auto;
+    object-fit: cover;
+    display: block;
+}
+
+.contact-right h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin: 0 0 2rem;
+    color: var(--inline);
+}
+
+.contact-right h1 em {
+    color: var(--rust);
+}
+
+.contact-right {
+    align-self: center;
+}
+
+.contact-box {
+    border: 1px solid var(--inline);
+    padding: 2.5rem;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 2.5rem;
+    align-items: start;
+}
+
+.contact-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.field label {
+    font-family: 'Fraunces', serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--inline);
+}
+
+.field input {
+    font-family: 'Fraunces', serif;
+    font-size: 1rem;
+    border: none;
+    border-bottom: 1px solid var(--line);
+    padding: 0.5rem 0;
+    width: 100%;
+    transition: border-color 0.3s ease;
+    background: transparent;
+    color: var(--line);
+}
+
+.field input:focus {
+    outline: none;
+    border-bottom-color: var(--inline);
+}
+
+.button {
+    font-family: 'Fraunces', serif;
+    font-size: 1.15rem;
+    font-style: italic;
+    font-weight: 400;
+    border: none;
+    padding: 0.25rem 0;
+    margin-top: 1rem;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.4s ease;
+    background: none;
+    color: var(--inline);
+}
+
+.button::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: var(--inline);
+    transition: background 0.4s ease;
+}
+
+.button .arrow {
+    display: inline-block;
+    margin-left: 0.4rem;
+    transition: transform 0.4s ease;
+}
+
+.button:hover {
+    color: var(--rust);
+}
+
+.button:hover::after {
+    background: var(--rust);
+}
+
+.button:hover .arrow {
+    transform: translateX(6px);
+}
+
+.contact-box .button {
+    align-self: flex-start;
+    margin-top: 0.5rem;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-left: 1.5rem;
+    border-left: 1px solid rgba(37, 36, 34, 0.15);
+}
+
+.info-block h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 1rem 0;
+    color: var(--line);
+}
+
+.info-block p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--muted);
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+    .contact-layout { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+@media (max-width: 600px) {
+    .contact-box { grid-template-columns: 1fr; padding: 1.5rem; gap: 2rem; }
+    .contact-info { padding-left: 0; border-left: none; border-top: 1px solid rgba(37, 36, 34, 0.15); padding-top: 1.5rem; }
+}
