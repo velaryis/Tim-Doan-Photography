@@ -271,30 +271,43 @@ nav a:hover::after {
 
 /* about section style */
 .about h2 {
-    font-size: 2.2rem;
-    font-weight: normal;
-    margin-top: 0;
+    font-size: clamp(2rem, 4vw, 3.4rem);
+    font-weight: 300;
+    line-height: 0.96;
+    letter-spacing: -0.03em;
+    margin: 0.45rem 0 1.25rem;
 }   
 
 .about {
-    font-size: 1.1rem;
-    text-align: justify; 
+    font-size: 1.08rem;
     text-decoration: none;
-    padding: 3rem;
+    padding: 2rem 2.5rem;
     display: block;
     color: var(--line);
 }
 
 .about-layout {
     display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
-    gap: 2.5rem;
+    grid-template-columns: minmax(0, 1.34fr) minmax(300px, 0.66fr);
+    gap: 2.2rem;
     align-items: start;
 }
 
 .about-text {
-    max-width: 50rem;
-    line-height: 1.7;
+    max-width: 52rem;
+    line-height: 1.62;
+}
+
+.about-text .mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.74rem;
+    letter-spacing: 0.25rem;
+    text-transform: uppercase;
+    color: var(--rust);
+}
+
+.about-text p {
+    margin: 0 0 0.85rem;
 }
 
 .about em {
@@ -303,41 +316,83 @@ nav a:hover::after {
 
 .credits {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.6rem;
+    font-size: 0.62rem;
     margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--line); /* adds a top border to the credits section */
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(37, 36, 34, 0.26);
     display: grid;
-    grid-template-columns: 1fr 2fr; /* sets the grid to have two columns with a 1:2 ratio */
+    grid-template-columns: 1fr 1fr;
     gap: 1rem;
-    text-transform: uppercase; 
+    text-transform: uppercase;
     letter-spacing: 0.15em;
     color: var(--muted);
+    width: 100%;
+}
+
+.credits b {
+    display: block;
+    color: var(--line);
+    margin-bottom: 0.35rem;
 }
 
 .credits div span {
     display: block;
+    line-height: 1.8;
 }
 
 .tim-headshot {
+    width: 100%;
+    max-width: 400px;
+    justify-self: end;
     align-self: start;
+    margin-top: 2.5rem;
+    margin-right: 2.5rem;
 }
 
 .tim-headshot img {
-    max-width: 100%;
+    width: 100%;
     display: block;
     height: auto;
+    border: 1px solid rgba(37, 36, 34, 0.2);
 }
 
 @media (max-width: 900px) {
+    .about {
+        padding: 1.8rem;
+    }
+
     .about-layout {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
 
-    .tim-headshot img {
+    .about h2 {
+        margin-bottom: 0.9rem;
+    }
+
+    .about-highlights {
+        margin-bottom: 0;
+    }
+
+    .tim-headshot {
         max-width: 320px;
-        margin: 0;
+        justify-self: start;
+    }
+
+    .tim-headshot img {
+        width: 100%;
+    }
+
+    .tim-headshot .credits {
+        width: 100%;
+    }
+
+    .tim-headshot .about-highlights {
+        width: 100%;
+    }
+
+    .credits {
+        grid-template-columns: 1fr;
     }
 }
 
