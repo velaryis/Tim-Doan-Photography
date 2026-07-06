@@ -296,6 +296,7 @@ nav a:hover::after {
 .about-text {
     max-width: 52rem;
     line-height: 1.62;
+    text-align: justify;
 }
 
 .about-text .mono {
