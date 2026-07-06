@@ -2,6 +2,7 @@
 :root {
     --primary: #fffcf2;
     --line: #252422;
+    --inline: #252422;
     --muted: #403d39;
     --rust: #b4654a;
     --light: #ccc5b9;
@@ -142,7 +143,6 @@ nav a:hover::after {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 6px;
     margin: 10px 0 40px;
     color: #a8613e;
     font-size: 0.8rem;
@@ -160,8 +160,8 @@ nav a:hover::after {
 }
 
 .scroll-arrow {
-    font-size: 1.2rem;
-    animation: bounce 1.8s infinite;
+    font-size: 1rem;
+    animation: bounce 2s infinite;
 }
 
 .scroll-indicator {
@@ -1011,4 +1011,51 @@ nav a:hover::after {
 @media (max-width: 600px) {
     .contact-box { grid-template-columns: 1fr; padding: 1.5rem; gap: 2rem; }
     .contact-info { padding-left: 0; border-left: none; border-top: 1px solid rgba(37, 36, 34, 0.15); padding-top: 1.5rem; }
+}
+
+/* desktop normalization: unify text and section dimensions across pages */
+@media (min-width: 901px) {
+    body {
+        font-size: 18px;
+        line-height: 1.5;
+    }
+
+    .about,
+    .portfolio-shell,
+    .services,
+    .contact {
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+    }
+
+    .home-section .home-blurb h1,
+    .home-portfolio-heading,
+    .about h2,
+    .portfolio-heading,
+    .services-intro h1,
+    .section-title,
+    .contact-right h1,
+    .contact h1 {
+        font-size: 3rem;
+        line-height: 1;
+        letter-spacing: -0.02em;
+    }
+
+    .home-section .home-blurb p,
+    .home-portfolio-blurb,
+    .home-section .home-blurb-end p,
+    .about,
+    .about-text,
+    .services,
+    .field label,
+    .field input,
+    .info-block p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .services-intro,
+    .portfolio-intro {
+        max-width: 52rem;
+    }
 }
