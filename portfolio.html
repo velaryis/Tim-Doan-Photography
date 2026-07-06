@@ -21,35 +21,169 @@
     </ul>
 </nav>
 
-<div id="gallery" class="gallery-grid"></div>
+<main class="portfolio-shell">
+<section class="portfolio-intro">
+    <h1 class="portfolio-heading" id="portfolio-heading">Portfolio</h1>
+    <div class="portfolio-divider"></div>
+</section>
 
+<div class="portfolio-back-wrap" id="portfolio-back-wrap" style="display:none;">
+    <a href="portfolio.html" class="portfolio-back-link" aria-label="Back to main portfolio">Back to Portfolio</a>
+</div>
+
+<section class="portfolio-preview" id="category-grid">
+    <a href="portfolio.html?category=events" class="preview-grid">
+        <img src="images/thumbnails/EventPortfolioPage.jpg" alt="Event Portfolio Preview">
+        <div class="overlay">Events</div>
+    </a>
+ 
+    <a href="portfolio.html?category=portraits" class="preview-grid">
+        <img src="images/thumbnails/PortraitPortfolioPage.jpg" alt="Portrait Portfolio Preview">
+        <div class="overlay">Portraits</div>
+    </a>
+ 
+    <a href="portfolio.html?category=weddings" class="preview-grid">
+        <img src="images/thumbnails/WeddingPortfolioPage.jpg" alt="Wedding Portfolio Preview">
+        <div class="overlay">Weddings</div>
+    </a>
+ 
+    <a href="portfolio.html?category=graduation" class="preview-grid">
+        <img src="images/thumbnails/GradPortfolioPage.jpg" alt="Graduation Portfolio Preview">
+        <div class="overlay">Graduations</div>
+    </a>
+</section>
+
+<div id="gallery" class="gallery-grid" style="display:none;"></div>
+<p id="empty-message" class="gallery-empty" style="display:none;">
+    No photos found for this category yet.
+</p>
+</main>
+
+<div id="lightbox" class="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" alt="Full size photo">
+</div>
+ 
 <script>
+    const categoryConfig = {
+        events: {
+            title: "Events",
+            dataKey: "events",
+            folder: "events"
+        },
+        portraits: {
+            title: "Portraits",
+            dataKey: "portrait",
+            folder: "portraits"
+        },
+        weddings: {
+            title: "Weddings",
+            dataKey: "wedding",
+            folder: "weddings"
+        },
+        graduation: {
+            title: "Graduations",
+            dataKey: "graduation",
+            folder: "grads"
+        }
+    };
+ 
     const params = new URLSearchParams(window.location.search);
     const category = params.get('category');
+ 
+    const headingEl = document.getElementById('portfolio-heading');
+    const leadEl = document.getElementById('portfolio-lead');
+    const backWrapEl = document.getElementById('portfolio-back-wrap');
+    const categoryGridEl = document.getElementById('category-grid');
+    const galleryEl = document.getElementById('gallery');
+    const emptyEl = document.getElementById('empty-message');
+ 
+    if (!category) {
+        document.body.classList.add('is-portfolio-home');
+        backWrapEl.style.display = 'none';
+        if (leadEl) {
+            leadEl.style.display = '';
+        }
+        categoryGridEl.style.display = '';
+        emptyEl.style.display = 'none';
+        galleryEl.style.display = 'none';
+    } else {
+        document.body.classList.add('is-portfolio-category');
+        const selectedCategory = categoryConfig[category];
 
-    fetch('gallery-data.json')
-        .then(res => res.json())
-        .then(data => {
-            const photos = data[category] || [];
-            const gallery = document.getElementById('gallery');
-            photos.forEach(filename => {
-                const img = document.createElement('img');
-                img.src = `images/${category}/${filename}`;
-                img.className = 'gallery-item';
-                gallery.appendChild(img);
+        backWrapEl.style.display = '';
+        if (leadEl) {
+            leadEl.style.display = 'none';
+        }
+        categoryGridEl.style.display = 'none';
+        galleryEl.style.display = '';
+ 
+        if (selectedCategory) {
+            headingEl.textContent = selectedCategory.title;
+        }
+ 
+        fetch('gallery-data.json')
+            .then(res => res.json())
+            .then(data => {
+                if (!selectedCategory) {
+                    emptyEl.style.display = 'block';
+                    return;
+                }
+
+                const photos = data[selectedCategory.dataKey] || [];
+ 
+                if (photos.length === 0) {
+                    emptyEl.style.display = 'block';
+                    return;
+                }
+ 
+                photos.forEach(filename => {
+                    const img = document.createElement('img');
+                    img.src = `images/${selectedCategory.folder}/${filename}`;
+                    img.alt = `${selectedCategory.title} photo`;
+                    img.className = 'gallery-item';
+                    img.loading = 'lazy';
+
+                    img.addEventListener('click', () => openLightbox(img.src));
+                    
+                    galleryEl.appendChild(img);
+                });
+            })
+            .catch(err => {
+                console.error('Could not load gallery-data.json', err);
+                emptyEl.textContent = 'Could not load photos right now.';
+                emptyEl.style.display = 'block';
             });
-        })
+    }
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.querySelector('.lightbox-close');
+
+    function openLightbox(src) {
+    lightboxImg.src = src;
+    lightbox.classList.add('active');
+    }
+
+    function closeLightbox() {
+    lightbox.classList.remove('active');
+    }
+
+    lightbox.addEventListener('click', closeLightbox);
+    lightboxClose.addEventListener('click', closeLightbox);
+
+    lightboxImg.addEventListener('click', (e) => e.stopPropagation());
 </script>
 
 <section class="site-footer">
     <footer>
         <div>© Tim Doan Photography — All Rights Reserved</div>
-        <div class = "socials">
-            <a href = "https://www.facebook.com/profile.php?id=61579268761219" target="_blank" rel="noopener noreferrer">Facebook</a>
-            <a href = "https://www.instagram.com/timdoan.jpg/" target="_blank" rel="noopener noreferrer">Instagram</a>
-            <a href = "https://www.linkedin.com/in/tim-doan-" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a href = "https://timdoan.pixieset.com" target="_blank" rel="noopener noreferrer">Pixieset</a>
-            <a href = "https://www.fiverr.com/s/xXvwPja" target="_blank" rel="noopener noreferrer">Fiverr</a>
+        <div class="socials">
+            <a href="https://www.facebook.com/profile.php?id=61579268761219" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="https://www.instagram.com/timdoan.jpg/" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://www.linkedin.com/in/tim-doan-" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://timdoan.pixieset.com" target="_blank" rel="noopener noreferrer">Pixieset</a>
+            <a href="https://www.fiverr.com/s/xXvwPja" target="_blank" rel="noopener noreferrer">Fiverr</a>
         </div>
     </footer>
 </section>
