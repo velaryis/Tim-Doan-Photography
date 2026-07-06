@@ -275,7 +275,7 @@ nav a:hover::after {
     font-weight: 300;
     line-height: 0.96;
     letter-spacing: -0.03em;
-    margin: 0.45rem 0 1.25rem;
+    margin: 0.45rem 0 2rem;
 }   
 
 .about {
@@ -308,7 +308,7 @@ nav a:hover::after {
 }
 
 .about-text p {
-    margin: 0 0 0.85rem;
+    margin: 0 0 1rem;
 }
 
 .about em {
@@ -338,7 +338,7 @@ nav a:hover::after {
 
 .credits div span {
     display: block;
-    line-height: 1.8;
+    line-height: 1.6;
 }
 
 .tim-headshot {
@@ -348,6 +348,7 @@ nav a:hover::after {
     align-self: start;
     margin-top: 2.5rem;
     margin-right: 2.5rem;
+    margin-bottom: 2rem;
 }
 
 .tim-headshot img {
