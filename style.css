@@ -24,7 +24,7 @@ nav {
     position: sticky; /* makes the nav bar stick to its position within the viewport */
     top: 0; /* sticks the nav bar to the top of the viewport */
     z-index: 100; /* ensures nav bar stays on top of other content */
-    padding: 1.2rem 2.5rem; /* adds space inside the nav bar around its content */
+    padding: 0.7rem 2.5rem; /* adds space inside the nav bar around its content */
     display: flex; /* enables flexbox layout for the nav bar content */
     justify-content: space-between; /* aligns the nav bar content with space between items */
     align-items: center; /* vertically centers the nav bar content */
@@ -33,7 +33,7 @@ nav {
 }
 
 nav .name { /* style for 'tim doan photography' text in the nav bar */
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 300;
     font-style: italic;
     letter-spacing: -0.02em;    
@@ -79,8 +79,8 @@ nav a:hover::after {
 
 .site-footer footer { /* style for the footer element within the site-footer */
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem;
-    padding: 1rem 2.5rem; /* adds padding inside the footer for spacing */
+    font-size: 0.6rem;
+    padding: 0.9rem 2.5rem; /* adds padding inside the footer for spacing */
     display: flex; 
     border-top: 1px solid var(--line); /* adds a top border to the footer */
     justify-content: space-between; /* spaces out the footer content evenly */
@@ -110,7 +110,7 @@ nav a:hover::after {
 
 .home-img img {
     width: 100%; /* makes the image take the full width of the container */
-    height: 51.5vh; /* maintains the aspect ratio of the image */
+    height: 52vh; /* maintains the aspect ratio of the image */
     object-fit: cover; /* ensures the image covers the container without distortion */
     object-position: center 58%;
     transform: scale(1.50); /* slightly scales up the image for a subtle zoom effect */
@@ -118,25 +118,76 @@ nav a:hover::after {
 }
 
 .home-section .home-blurb h1 {
-    font-size: 2.3rem;
+    font-size: 2.2rem;
     text-align: center;
     font-weight: 400;
     font-style: italic;
     letter-spacing: 0.25em;   
     text-transform: uppercase; /* transforms the text to uppercase letters */
     margin: 0 auto; /* centers the home blurb horizontally */
-    padding-top: 2rem; /* adds padding around the home blurb for spacing */
+    padding-top: 1.5rem; /* adds padding around the home blurb for spacing */
+    padding-bottom: 0.5rem; /* adds padding to the bottom of the home blurb heading for spacing */
     color: var(--rust); /* sets the text color for the home blurb heading */
 }
 
 .home-section .home-blurb p {
     max-width: 75%;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     text-align: center ;
     font-weight: 300; /* sets the font weight to a lighter style for the paragraph */
     line-height: 1.5;
-    margin: 0.5rem auto; /* adds margin to the top of the paragraph for spacing */
-    padding-bottom: 1.5rem; /* adds padding to the bottom of the paragraph for spacing */
+    margin: 0.6rem auto; /* adds margin to the top of the paragraph for spacing */
+}
+
+.scroll-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    margin: 10px 0 40px;
+    color: #a8613e;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    max-height: 60px;
+    transition: opacity 0.5s ease, max-height 0.5s ease, margin 0.5s ease;
+}
+
+.scroll-indicator.hidden {
+    opacity: 0;
+    max-height: 0;
+    margin: 0;
+    pointer-events: none;
+}
+
+.scroll-arrow {
+    font-size: 1.2rem;
+    animation: bounce 1.8s infinite;
+}
+
+.scroll-indicator {
+    transition: opacity 0.5s ease;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(8px);
+    }
+}
+
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .home-portfolio-heading {
@@ -152,7 +203,163 @@ nav a:hover::after {
 
 .home-portfolio-blurb {
     max-width: 70%;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    text-align: center;
+    font-weight: 300; /* sets the font weight to a lighter style for the paragraph */
+    line-height: 1.5;
+    margin: 0 auto;
+    padding-bottom: 1.5rem; /* adds padding to the bottom of the paragraph for spacing */
+}
+
+.heading-divider {
+    width: 120px;
+    height: 2px;
+    margin: 0 auto;
+    background: var(--rust);
+}
+
+.portfolio-preview {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* creates a grid with 2 equal columns */
+    gap: 20px; /* adds space between the grid items */
+    margin: 0 auto; /* centers the portfolio preview section horizontally */
+}
+
+.home-section .home-blurb-end p {
+    max-width: 75%;
+    font-size: 1.1rem;
+    text-align: center ;
+    font-weight: 300; /* sets the font weight to a lighter style for the paragraph */
+    line-height: 1.5;
+    margin: 0 auto; /* adds margin to the top of the paragraph for spacing */
+    padding-bottom: 1.5rem; /* adds padding to the bottom of the paragraph for spacing */
+}
+
+.preview-grid {
+    position: relative;
+    display: block;
+    aspect-ratio: 4 / 3; /* sets the aspect ratio of the preview grid items to 4:3 */
+    overflow: hidden; /* ensures any overflow content within the preview grid item is hidden */
+}
+
+.preview-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ensures the image covers the container without distortion */
+}
+
+.overlay {
+    position: absolute; /* positions the overlay absolutely within the preview grid item */
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* centers the content horizontally within the overlay */
+    background-color: rgba(0, 0, 0, 0); /* adds a semi-transparent background to the overlay */
+    color: transparent;
+    font-size: 1.5rem;
+    text-transform: uppercase; /* transforms the text to uppercase letters */
+    letter-spacing: 0.05em;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.preview-grid:hover .overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* changes the background to semi-transparent on hover */
+    color: white; /* changes the text color to white on hover */
+}
+
+@media (max-width: 600px) {
+    .portfolio-preview {
+        grid-template-columns: 1fr; /* changes the grid to a single column on small screens */
+    }
+}
+
+/* about section style */
+.about h2 {
+    font-size: 2.2rem;
+    font-weight: normal;
+    margin-top: 0;
+}   
+
+.about {
+    font-size: 1.1rem;
+    text-align: justify; 
+    text-decoration: none;
+    padding: 3rem; /* adds padding around the about section for spacing */
+    display: block; /* sets the about section to block display */
+    color: var(--line);
+}
+
+.about-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
+    gap: 2.5rem;
+    align-items: start;
+}
+
+.about-text {
+    max-width: 50rem;
+    line-height: 1.7;
+}
+
+.about em {
+    color: var(--rust);
+}
+
+.credits {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line); /* adds a top border to the credits section */
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* sets the grid to have two columns with a 1:2 ratio */
+    gap: 1rem; /* adds a gap between the grid columns */
+    text-transform: uppercase; 
+    letter-spacing: 0.15em;
+    color: var(--muted);
+}
+
+.credits div span {
+    display: block; /* ensures each span within the credits div is displayed as a block element */
+}
+
+.tim-headshot {
+    align-self: start;
+}
+
+.tim-headshot img {
+    max-width: 100%;
+    display: block;
+    height: auto;
+}
+
+@media (max-width: 900px) {
+    .about-layout {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .tim-headshot img {
+        max-width: 320px;
+        margin: 0;
+    }
+}
+
+/* portfolio style */
+.portfolio-heading {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-top: 30px;
+    margin-bottom: .5rem; /* adds margin to the bottom of the home portfolio heading for spacing */
+    color: var(--muted); /* sets the text color for the home portfolio heading */
+}
+
+.portfolio-blurb {
+    max-width: 70%;
+    font-size: 1.1rem;
     text-align: center;
     font-weight: 300; /* sets the font weight to a lighter style for the paragraph */
     line-height: 1.5;
@@ -208,80 +415,8 @@ nav a:hover::after {
 }
 
 @media (max-width: 600px) {
-    .preview-grid {
+    .portfolio-preview {
         grid-template-columns: 1fr; /* changes the grid to a single column on small screens */
-    }
-}
-
-/* about section style */
-.about h2 {
-    font-size: 2.5rem;
-    font-weight: normal;
-    margin-top: 0;
-}   
-
-.about {
-    font-size: 1.2rem;
-    text-align: justify; 
-    text-decoration: none;
-    padding: 3rem; /* adds padding around the about section for spacing */
-    display: block; /* sets the about section to block display */
-    color: var(--line);
-}
-
-.about-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
-    gap: 2.5rem;
-    align-items: start;
-}
-
-.about-text {
-    max-width: 50rem;
-    line-height: 1.7;
-}
-
-.about em {
-    color: var(--rust);
-}
-
-.credits {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.75rem;
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--line); /* adds a top border to the credits section */
-    display: grid;
-    grid-template-columns: 1fr 2fr; /* sets the grid to have two columns with a 1:2 ratio */
-    gap: 1rem; /* adds a gap between the grid columns */
-    text-transform: uppercase; 
-    letter-spacing: 0.15em;
-    color: var(--muted);
-}
-
-.credits div span {
-    display: block; /* ensures each span within the credits div is displayed as a block element */
-}
-
-.tim-headshot {
-    align-self: start;
-}
-
-.tim-headshot img {
-    max-width: 100%;
-    display: block;
-    height: auto;
-}
-
-@media (max-width: 900px) {
-    .about-layout {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .tim-headshot img {
-        max-width: 320px;
-        margin: 0;
     }
 }
 

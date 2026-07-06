@@ -33,11 +33,16 @@
     </div>
 </section>
 
-<h1 class="home-portfolio-heading">Portfolio</h1>
-<p class="home-portfolio-blurb">Explore a curated selection of Tim Doan Photography's work across various events, portraits, weddings, and graduations, showcasing the artistry, skill, and dedication that goes into capturing each moment perfectly.</p>
-<div class="heading-divider"></div>
+<div class="scroll-indicator">
+    <span>Swipe Up</span>
+    <div class="scroll-arrow">↓</div>
+</div>
 
-<section class="portfolio-preview">
+<h1 class="home-portfolio-heading reveal-on-scroll">Portfolio</h1>
+<p class="home-portfolio-blurb reveal-on-scroll">Explore a curated selection of Tim Doan Photography's work across various events, portraits, weddings, and graduations, showcasing the artistry, skill, and dedication that goes into capturing each moment perfectly.</p>
+<div class="heading-divider reveal-on-scroll"></div>
+
+<section class="portfolio-preview reveal-on-scroll">
     <a href="portfolio.html?category=events" class="preview-grid">
         <img src="images//thumbnails/EventPortfolio.jpg" alt="Event Portfolio Preview">
         <div class="overlay">Events</div>
@@ -59,8 +64,8 @@
     </a>
 </section>
 
-<section class="home-section">
-    <div class="home-blurb">
+<section class="home-section reveal-on-scroll">
+    <div class="home-blurb-end reveal-on-scroll">
         <p>Ready to get started?<br>Reach out to Tim Doan Photography today to book a consultation call and take the first step towards bringing your vision to life.</p>
     </div>
 </section>
@@ -78,6 +83,32 @@
         </div>
     </footer>
 </section>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal-on-scroll');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.40 });
+
+  revealEls.forEach(el => observer.observe(el));
+
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+
+    const indicatorObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+        scrollIndicator.classList.add('hidden');
+        }
+    });
+    }, { threshold: 0.1 });
+
+    indicatorObserver.observe(document.querySelector('.portfolio-preview'));
+</script>
 
 </body>
 </html>
