@@ -211,13 +211,6 @@ nav a:hover::after {
     padding-bottom: 1.5rem; /* adds padding to the bottom of the paragraph for spacing */
 }
 
-.heading-divider {
-    width: 120px;
-    height: 2px;
-    margin: 0 auto;
-    background: var(--rust);
-}
-
 .portfolio-preview {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* creates a grid with 2 equal columns */
@@ -233,6 +226,10 @@ nav a:hover::after {
     line-height: 1.5;
     margin: 0 auto; /* adds margin to the top of the paragraph for spacing */
     padding-bottom: 1.5rem; /* adds padding to the bottom of the paragraph for spacing */
+}
+
+.home-portfolio-heading + .home-portfolio-blurb + .heading-divider + .portfolio-preview {
+    margin-bottom: 20px;
 }
 
 .preview-grid {
@@ -346,78 +343,213 @@ nav a:hover::after {
 }
 
 /* portfolio style */
+.portfolio-shell {
+    padding: 2.5rem;
+    color: var(--line);
+}
+
+.portfolio-intro {
+    max-width: 44rem;
+    margin-bottom: 2.2rem;
+}
+
 .portfolio-heading {
-    text-align: center;
-    font-size: 2rem;
-    font-weight: 400;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    margin-top: 30px;
-    margin-bottom: .5rem; /* adds margin to the bottom of the home portfolio heading for spacing */
-    color: var(--muted); /* sets the text color for the home portfolio heading */
+    font-size: clamp(2.8rem, 7vw, 5rem);
+    font-weight: 300;
+    letter-spacing: -0.03em;
+    line-height: 0.95;
+    color: var(--line);
+    margin: 0.35rem 0 0.85rem;
 }
 
-.portfolio-blurb {
-    max-width: 70%;
-    font-size: 1.1rem;
-    text-align: center;
-    font-weight: 300; /* sets the font weight to a lighter style for the paragraph */
-    line-height: 1.5;
-    margin: 0 auto;
-    padding-bottom: 1.5rem; /* adds padding to the bottom of the paragraph for spacing */
-}
-
-.heading-divider {
-    width: 120px;
+.portfolio-divider {
+    width: 100%;
+    max-width: 520px;
     height: 2px;
-    margin: 0 auto;
-    background: var(--rust);
+    background: linear-gradient(to right, rgba(37, 36, 34, 0.35), rgba(37, 36, 34, 0.05));
+    margin: 1.5rem 0 0;
+}
+
+.portfolio-back-wrap {
+    max-width: 1400px;
+    margin: 0 auto 1.5rem;
+    padding: 0;
+}
+
+.portfolio-back-link {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    text-decoration: none;
+    color: var(--muted);
+    border: 1px solid rgba(37, 36, 34, 0.3);
+    padding: 0.5rem 0.8rem;
+    transition: color 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.portfolio-back-link::before {
+    content: "< ";
+}
+
+.portfolio-back-link:hover {
+    color: var(--rust);
+    border-color: var(--rust);
+    background-color: rgba(180, 101, 74, 0.08);
 }
 
 .portfolio-preview {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* creates a grid with 2 equal columns */
-    gap: 20px; /* adds space between the grid items */
-    margin: 0 auto; /* centers the portfolio preview section horizontally */
-    padding: 2rem; /* adds padding around the portfolio preview section for spacing */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+    max-width: 1360px;
+    margin: 0 auto 56px;
+    padding: 0;
 }
 
 .preview-grid {
     position: relative;
     display: block;
-    aspect-ratio: 4 / 3; /* sets the aspect ratio of the preview grid items to 4:3 */
-    overflow: hidden; /* ensures any overflow content within the preview grid item is hidden */
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    border-radius: 4px;
+    border: 1px solid rgba(37, 36, 34, 0.18);
+    background: var(--primary);
 }
 
 .preview-grid img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* ensures the image covers the container without distortion */
+    object-fit: cover;
+    transition: transform 0.55s ease, filter 0.35s ease;
 }
 
-.overlay {
-    position: absolute; /* positions the overlay absolutely within the preview grid item */
+.preview-grid:hover img {
+    transform: scale(1.04);
+    filter: saturate(0.92) contrast(1.03);
+}
+
+.preview-grid .overlay {
+    position: absolute;
     inset: 0;
     display: flex;
-    align-items: center;
-    justify-content: center; /* centers the content horizontally within the overlay */
-    background-color: rgba(0, 0, 0, 0); /* adds a semi-transparent background to the overlay */
-    color: transparent;
-    font-size: 1.5rem;
-    text-transform: uppercase; /* transforms the text to uppercase letters */
-    letter-spacing: 0.05em;
-    transition: background 0.3s ease, color 0.3s ease;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 0 1rem 1rem;
+    background: linear-gradient(to top, rgba(37, 36, 34, 0.64), rgba(37, 36, 34, 0.05) 62%);
+    color: var(--primary);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.74rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 1;
+    transition: background 0.3s ease;
 }
 
 .preview-grid:hover .overlay {
-    background-color: rgba(0, 0, 0, 0.5); /* changes the background to semi-transparent on hover */
-    color: white; /* changes the text color to white on hover */
+    background: linear-gradient(to top, rgba(37, 36, 34, 0.78), rgba(37, 36, 34, 0.1) 62%);
 }
 
-@media (max-width: 600px) {
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto 80px;
+    padding: 0;
+    animation: fadeIn 0.6s ease;
+}
+
+.gallery-item {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.02);
+}
+
+.gallery-empty {
+    text-align: center;
+    color: #8a8a8a;
+    font-style: italic;
+    margin-bottom: 80px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 900px) {
     .portfolio-preview {
-        grid-template-columns: 1fr; /* changes the grid to a single column on small screens */
+        grid-template-columns: repeat(2, 1fr);
     }
+}
+
+@media (max-width: 500px) {
+    .portfolio-shell {
+        padding: 1.5rem;
+    }
+
+    .portfolio-lead {
+        font-size: 1rem;
+    }
+
+    .portfolio-back-wrap {
+        margin-top: 0;
+        padding: 0;
+    }
+
+    .portfolio-preview {
+        grid-template-columns: 1fr;
+    }
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 4px;
+    animation: zoomIn 0.3s ease;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 24px;
+    right: 36px;
+    color: white;
+    font-size: 2.5rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
 }
 
 /* services style */
