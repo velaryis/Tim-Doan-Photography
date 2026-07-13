@@ -99,15 +99,17 @@
 
     const scrollIndicator = document.querySelector('.scroll-indicator');
 
-    const indicatorObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-        scrollIndicator.classList.add('hidden');
+    function updateScrollIndicator() {
+        if (window.scrollY > 40) {
+            scrollIndicator.classList.add('hidden');
+        } else {
+            scrollIndicator.classList.remove('hidden');
         }
-    });
-    }, { threshold: 0.1 });
+    }
 
-    indicatorObserver.observe(document.querySelector('.portfolio-preview'));
+    window.addEventListener('scroll', updateScrollIndicator, { passive: true });
+    updateScrollIndicator();
+
 </script>
 
 </body>

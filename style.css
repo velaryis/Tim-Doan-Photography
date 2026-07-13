@@ -282,7 +282,10 @@ nav a:hover::after {
     font-size: 1.08rem;
     text-decoration: none;
     padding: clamp(1.828rem, 0.643vw + 1.417rem, 2.188rem) clamp(2.285rem, 0.804vw + 1.771rem, 2.735rem);
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1 0 auto;
     color: var(--line);
 }
 
@@ -401,6 +404,10 @@ nav a:hover::after {
 /* portfolio style */
 .portfolio-shell {
     padding: clamp(2.285rem, 0.804vw + 1.771rem, 2.735rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1 0 auto;
     color: var(--line);
 }
 
@@ -621,7 +628,10 @@ nav a:hover::after {
     text-align: left;
     text-align: justify;
     text-decoration: none;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1 0 auto;
     padding: clamp(2.285rem, 0.804vw + 1.771rem, 2.735rem);
     color: var(--inline);
 }
@@ -845,7 +855,10 @@ nav a:hover::after {
 
 /* contact style */
 .contact {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1 0 auto;
     text-align: center;
 }
 
