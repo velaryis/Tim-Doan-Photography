@@ -409,6 +409,13 @@ nav a:hover::after {
     margin-bottom: 2.2rem;
 }
 
+.portfolio-intro .mono {
+    font-size: 0.75rem;
+    letter-spacing: 0.25rem;
+    text-transform: uppercase;
+    color: var(--rust);
+}
+
 .portfolio-heading {
     font-size: clamp(2.8rem, 7vw, 5rem);
     font-weight: 300;
