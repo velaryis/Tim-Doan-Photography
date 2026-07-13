@@ -8,6 +8,14 @@
     --light: #ccc5b9;
 }
 
+/* fluid root sizing — everything below is in rem, so scaling this one value
+   scales the whole site proportionally at any screen width. Only the far
+   edges (very narrow desktop windows, very large/wide monitors) hit a limit;
+   normal laptop-to-monitor range scales continuously. */
+html {
+    font-size: clamp(14.5px, 0.271vw + 12.069px, 20px);
+}
+
 /* general body style */
 body {
     font-family: 'Fraunces', serif;
@@ -25,7 +33,7 @@ nav {
     position: sticky; /* makes the nav bar stick to its position within the viewport */
     top: 0; /* sticks the nav bar to the top of the viewport */
     z-index: 100; /* ensures nav bar stays on top of other content */
-    padding: clamp(0.64rem, 0.225vw + 0.496rem, 0.766rem) clamp(2.285rem, 0.804vw + 1.771rem, 2.735rem);
+    padding: 0.7rem 2.5rem;
     display: flex;
     justify-content: space-between; /* aligns the nav bar content with space between items */
     align-items: center;
@@ -103,6 +111,13 @@ nav a:hover::after {
 }
 
 /* home page style */
+.home-hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: calc(100vh - 4.7rem); /* 4.7rem ≈ nav's natural height */
+}
+
 .home-img {
     width: 100%;
     overflow: hidden; /* ensures any overflow content is hidden */
@@ -213,7 +228,7 @@ nav a:hover::after {
 .portfolio-preview {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* creates a grid with 2 equal columns */
-    gap: clamp(1.143rem, 0.402vw + 0.885rem, 1.368rem); /* adds space between the grid items */
+    gap: 1.25rem; /* adds space between the grid items */
     margin: 0 auto;
 }
 
@@ -281,7 +296,7 @@ nav a:hover::after {
 .about {
     font-size: 1.08rem;
     text-decoration: none;
-    padding: clamp(1.828rem, 0.643vw + 1.417rem, 2.188rem) clamp(2.285rem, 0.804vw + 1.771rem, 2.735rem);
+    padding: 2rem 2.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -346,12 +361,12 @@ nav a:hover::after {
 
 .tim-headshot {
     width: 100%;
-    max-width: clamp(22.85rem, 8.036vw + 17.708rem, 27.35rem);
+    max-width: 25rem;
     justify-self: end;
     align-self: start;
-    margin-top: clamp(2.285rem, 0.804vw + 1.771rem, 2.735rem);
-    margin-right: clamp(2.285rem, 0.804vw + 1.771rem, 2.735rem);
-    margin-bottom: clamp(1.828rem, 0.643vw + 1.417rem, 2.188rem);
+    margin-top: 2.5rem;
+    margin-right: 2.5rem;
+    margin-bottom: 2rem;
 }
 
 .tim-headshot img {
@@ -403,24 +418,17 @@ nav a:hover::after {
 
 /* portfolio style */
 .portfolio-shell {
-    padding: clamp(2.285rem, 0.804vw + 1.771rem, 2.735rem);
+    padding: 2.5rem;
+    color: var(--line);
     display: flex;
     flex-direction: column;
     justify-content: center;
     flex: 1 0 auto;
-    color: var(--line);
 }
 
 .portfolio-intro {
     max-width: 44rem;
     margin-bottom: 2.2rem;
-}
-
-.portfolio-intro .mono {
-    font-size: 0.75rem;
-    letter-spacing: 0.25rem;
-    text-transform: uppercase;
-    color: var(--rust);
 }
 
 .portfolio-heading {
@@ -472,9 +480,9 @@ nav a:hover::after {
 .portfolio-preview {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: clamp(1.097rem, 0.386vw + 0.85rem, 1.313rem);
-    max-width: 1360px;
-    margin: 0 auto 56px;
+    gap: 1.2rem;
+    max-width: 85rem;
+    margin: 0 auto 3.5rem;
     padding: 0;
 }
 
@@ -533,7 +541,7 @@ nav a:hover::after {
 
 .gallery-item {
     width: 100%;
-    height: clamp(19.423rem, 6.83vw + 15.051rem, 23.248rem);
+    height: 21.25rem;
     object-fit: cover;
     border-radius: 4px;
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
@@ -632,7 +640,7 @@ nav a:hover::after {
     flex-direction: column;
     justify-content: center;
     flex: 1 0 auto;
-    padding: clamp(2.285rem, 0.804vw + 1.771rem, 2.735rem);
+    padding: 2.5rem;
     color: var(--inline);
 }
 
@@ -731,7 +739,7 @@ nav a:hover::after {
 
 .pkg {
     border: 1px solid var(--inline);
-    padding: clamp(2.285rem, 0.804vw + 1.771rem, 2.735rem) clamp(1.828rem, 0.643vw + 1.417rem, 2.188rem);
+    padding: 2.5rem 2rem;
     display: flex;
     flex-direction: column;
     transition: background 0.4s ease, transform 0.4s ease;
@@ -909,10 +917,10 @@ nav a:hover::after {
 
 .contact-box {
     border: 1px solid var(--inline);
-    padding: clamp(2.285rem, 0.804vw + 1.771rem, 2.735rem);
+    padding: 2.5rem;
     display: grid;
     grid-template-columns: 1.5fr 1fr;
-    gap: clamp(2.285rem, 0.804vw + 1.771rem, 2.735rem);
+    gap: 2.5rem;
     align-items: start;
 }
 
@@ -1036,7 +1044,7 @@ nav a:hover::after {
 /* desktop normalization: unify text and section dimensions across pages */
 @media (min-width: 901px) {
     body {
-        font-size: clamp(1.028rem, 0.362vw + 0.797rem, 1.231rem);
+        font-size: 1.125rem;
         line-height: 1.5;
     }
 
@@ -1044,8 +1052,8 @@ nav a:hover::after {
     .portfolio-shell,
     .services,
     .contact {
-        padding-left: clamp(2.285rem, 0.804vw + 1.771rem, 2.735rem);
-        padding-right: clamp(2.285rem, 0.804vw + 1.771rem, 2.735rem);
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
     }
 
     .home-section .home-blurb h1,
@@ -1056,7 +1064,7 @@ nav a:hover::after {
     .section-title,
     .contact-right h1,
     .contact h1 {
-        font-size: clamp(2.742rem, 0.964vw + 2.125rem, 3.282rem);
+        font-size: 3rem;
         line-height: 1;
         letter-spacing: -0.02em;
     }
